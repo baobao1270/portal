@@ -19,7 +19,7 @@
       description: 解决选择困难症
     - title: ChatGPT 中国版
       logo: ChatGPT.png
-      url: https://chat.lty.vc
+      url: https://ai.xtcp.link/
       description: 人工智能对话
     - title: 历史记录
       logo: Chrome.png
@@ -43,7 +43,7 @@
       description: 系统设置 - Windows 更新
     - title: 路由器设置
       logo: miwifi.png
-      url: https://10.0.0.1
+      url: http://10.0.0.1
       description: 打开路由器后台
     
 
