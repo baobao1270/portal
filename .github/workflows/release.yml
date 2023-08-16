@@ -42,8 +42,8 @@ jobs:
           hugo -D --gc --minify --cleanDestinationDir
           mkdir -p dist
           cp -r public HomePortal
-          zip -rq HomePortal-${{ github.ref_name }}.zip HomePortal
+          zip -rq home-portal-${{ github.ref_name }}.zip HomePortal
       - name: Publish to GitHub Releases
         uses: softprops/action-gh-release@v1
         with:
-          files: HomePortal-${{ github.ref_name }}.zip
+          files: home-portal-${{ github.ref_name }}.zip
