@@ -41,9 +41,9 @@ jobs:
           cat config.toml | grep version
           hugo -D --gc --minify --cleanDestinationDir
           mkdir -p dist
-          cp -r public PortalWeb
-          zip -rq Home-PortalWeb-${{ github.ref_name }}.zip PortalWeb
+          cp -r public HomePortal
+          zip -rq HomePortal-${{ github.ref_name }}.zip HomePortal
       - name: Publish to GitHub Releases
         uses: softprops/action-gh-release@v1
         with:
-          files: Home-PortalWeb-${{ github.ref_name }}.zip
+          files: HomePortal-${{ github.ref_name }}.zip
