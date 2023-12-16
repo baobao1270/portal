@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block title %}     {{ metadata.title[0] }}{% endblock %}
+{% block full_title %}{{ metadata.title[0] }} | {{ site.name }}{% endblock %}
+
+{% block content %}
+    <nav class="ws-breadcrumb">
+        <ul>
+            <li><a href="/">{{ site.name }}</a></li>
+            <li class="ws-breadcrumb-current">{{ metadata.title[0] }}</li>
+        </ul>
+    </nav>
+    {{ markdown | safe }}
+{% endblock %}

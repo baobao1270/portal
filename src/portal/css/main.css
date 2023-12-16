@@ -1,0 +1,73 @@
+code {
+    font-size: 0.9em;
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    border-radius: 6px;
+    padding: 2px 4px;
+}
+
+.codehilite {
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.codehilite code {
+    background-color: transparent;
+}
+
+blockquote {
+    border-left: 4px solid var(--color-accent);
+    padding-left: 1em;
+    margin-left: 0;
+}
+
+.site-group .site {
+    display: flex;
+    height: 60px;
+    flex-direction: row;
+    text-transform: none;
+    padding: 0;
+}
+
+.site-group .site-icon {
+    width: 32px;
+    height: 32px;
+    margin: 13px 8px;
+}
+
+.site-group .site-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.site-group .site-info .site-tag {
+    font-size: .7rem;
+    color: white;
+    padding: .2em .5em;
+    border-radius: .8em;
+}
+
+.site-group .site-info .site-description {
+    font-size: 0.75em;
+    color: var(--color-highlight);
+}
+
+.site-group .site-icon.site-icon-effect-circle {
+    border-radius: 50%;
+}
+
+.site-group .site-icon.site-icon-effect-hidden {
+    height: 0;
+    width: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    .site-group .site-icon.site-icon-effect-dark-invert {
+        filter: invert(1);
+    }
+
+    .site-group .site-icon.site-icon-effect-dark-whiteback {
+        background: #fff;
+    }
+}

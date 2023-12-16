@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="{{ site['lang'] }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>{% block full_title %}{% endblock %}</title>
+    {% if args.command == 'build' %}
+        <link rel="preload" as="style" href="{{ base_url(args.css_cdn_url, 'whitestone-stream-ui.min.css') }}">
+        <link rel="preload" as="style" href="{{ base_url(args.css_cdn_url, 'highlight.css') }}">
+        <link rel="preload" as="style" href="{{ base_url(args.css_cdn_url, 'main.css') }}">
+    {% endif %}    
+    <link rel="stylesheet" href="{{ base_url(args.css_cdn_url, 'whitestone-stream-ui.min.css') }}">
+    <link rel="stylesheet" href="{{ base_url(args.css_cdn_url, 'highlight.css') }}">
+    <link rel="stylesheet" href="{{ base_url(args.css_cdn_url, 'main.css') }}">
+</head>
+<body>
+    <main>
+        <header>
+            <h1>{% block title %}{% endblock %}</h1>
+            <aside>
+                {% for button in topbar %}
+                    <a  class="button ws-button"
+                        href="{{ button['url'] }}"
+                        {% if button['target'] %} target="{{ button['target'] }}" {% endif %}
+                    >{{ button['name'] }}</a>
+                {% endfor %}
+            </aside>
+        </header>
+        <article>
+            {% block content %}
+            {% endblock %}
+        </article>
+        <footer>
+            <p>
+                {{ site.footer }}
+            </p>
+        </footer>
+    </main>
+</body>
+</html>

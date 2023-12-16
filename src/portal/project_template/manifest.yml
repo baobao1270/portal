@@ -1,0 +1,67 @@
+# Manifest for the web portal
+# This is an example file, change it to suit your needs
+
+site:
+  name: Web Portal
+  lang: zh-CN
+  description: |
+    Welcome to the web portal!<br>
+    You can write some description here. We support <b>bold</b>, <i>italic</i>,
+    <u>underline</u>, <code>code</code> and <a href="https://github.com">links</a>.
+  footer: |
+    &copy; 2021 Your Name<br>
+    Powered by <a href="/">Web Portal</a> | <a href="/about">About</a>
+
+topbar:
+  - name: Home
+    url: /
+  - name: About
+    url: /about
+
+tags:
+  - name: Cloudflare
+    color: "#e57c30"
+  - name: K8S
+    color: |
+      linear-gradient(45deg, #66ccff, #cfcfcf, #66ccff)
+    text: "#3070c0"
+
+groups:
+  - name: Websites
+    sites:
+      - name: Google
+        icon: google.png
+        description: The Google Homepage
+        url: https://google.com
+      - name: Apple
+        icon: apple.png
+        description: The Apple Homepage
+        url: https://apple.com
+        icon_effects:
+          - circle
+          - dark-invert
+      - name: Microsoft
+        icon: microsoft.png
+        description: The Microsoft Homepage
+        url: https://microsoft.com
+        icon_effects:
+          - dark-whiteback
+  - name: Services
+    sites:
+      - name: K8S Project
+        tags: [K8S]
+        description: My K8S Project
+        url: https://127.0.0.1:3000
+      - name: Project 1
+        tags: [Cloudflare]
+        description: Hosted on Cloudflare
+        url: https://127.0.0.1:5000
+      - name: |
+          Project 2
+          My New Project
+        url: https://127.0.0.1:8000
+      - name: Project 3
+        tags:
+         - Cloudflare
+         - K8S
+        url: https://127.0.0.1:8080

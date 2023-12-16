@@ -1,0 +1,30 @@
+[project]
+name = "portal"
+version = "1.0.0"
+description = "An unified portal for listing URLs"
+authors = [
+    {name = "Joseph Chris", email = "joseph@josephcz.xyz"},
+]
+dependencies = [
+    "flask>=3.0.0",
+    "pyyaml>=6.0.1",
+    "markdown>=3.5.1",
+    "htmlmin>=0.1.12",
+    "pygments>=2.17.2",
+]
+requires-python = ">=3.9"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[project.scripts]
+portal-build = "portal.__main__:main"
+
+[tool.pdm.scripts]
+start = "portal-build --home src/portal/project_template"
+update-css-library   = {shell = "curl -L https://unpkg.com/@luotianyi-dev/whitestone-stream-ui@2.2.0/dist/whitestone-stream-ui.min.css > src/portal/css/whitestone-stream-ui.min.css"}
+update-css-highlight = {shell = "pygmentize -S default -f html -a .codehilite > src/portal/css/highlight.css"}
+update-css = {composite = ["update-css-library", "update-css-highlight"]}

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block title %}     {{ site.name }}{% endblock %}
+{% block full_title %}{{ site.name }}{% endblock %}
+
+{% block content %}
+    <section class="main" style="padding-top: 1rem;">
+        {{ site.description }}
+    </section>
+
+    {% for group in groups %}
+        <section>
+            <h2>{{ group.name }}</h2>
+            <div class="site-group ws-grid-box">
+                {% for site in group.sites %}
+                    <a target="_blank" class="site ws-button ws-grid-box-3" href="{{ site.url }}">
+                        <img alt="{{ site.name }}"
+                             {% if site.icon %}
+                                {% if site.icon.startswith('http://') or site.icon.startswith('https://') %}
+                                    src="{{ site.icon }}"
+                                {% else %}
+                                    src="{{ base_url(args.assets_cdn_url, site.icon) }}"
+                                {% endif %}
+                             {% endif %}
+                             referrerpolicy="no-referrer" 
+                             class="{{ site_icon_effects(site) }}">
+                        <div class="site-info">
+                            <span class="site-title">
+                                {{ site.name.strip().replace("\n", "<br>") }}
+                                {% for tag in site.tags %}
+                                    <span class="site-tag" {{ site_tag_colors(tags, tag) }}>{{ tag }}</span>
+                                {% endfor %}
+                            </span>
+                            <span class="site-description">{{ site.description }}</span>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </section>
+    {% endfor %}
+{% endblock %}
