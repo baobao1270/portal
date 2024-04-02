@@ -151,6 +151,8 @@ def build(args):
         copy(os.path.join(args.root, "css"), "css")
     if args.with_manifest:
         make(json.dumps(manifest, ensure_ascii=False), "manifest.json")
+    if os.exists(os.path.join(args.home, "favicon.ico")):
+        copy(os.path.join(args.home, "favicon.ico"), "favicon.ico")
     
     print("Done building portal.")
 
