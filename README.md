@@ -12,7 +12,7 @@ pdm init
 
 Then install the dependencies:
 ```bash
-pdm add https://github.com/baobao1270/portal.git
+pdm add git+https://github.com/baobao1270/portal.git
 ```
 
 Next, you can initialize the project with the following command:
