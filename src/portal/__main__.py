@@ -4,6 +4,7 @@ import yaml
 import shutil
 import htmlmin
 import argparse
+import mimetypes
 from datetime import datetime
 from markdown import Markdown
 from flask import Flask, Response
@@ -151,7 +152,7 @@ def build(args):
         copy(os.path.join(args.root, "css"), "css")
     if args.with_manifest:
         make(json.dumps(manifest, ensure_ascii=False), "manifest.json")
-    if os.exists(os.path.join(args.home, "favicon.ico")):
+    if os.path.exists(os.path.join(args.home, "favicon.ico")):
         copy(os.path.join(args.home, "favicon.ico"), "favicon.ico")
     
     print("Done building portal.")
@@ -191,7 +192,8 @@ def serve(args):
         if not os.path.exists(physical_path):
             return "Not Found", 404
         with open(physical_path, "rb") as f:
-            return Response(f.read(), mimetype="application/octet-stream")
+            mimetype = mimetypes.guess_type(physical_path, strict=True)[0] or "application/octet-stream"
+            return Response(f.read(), mimetype=mimetype)
 
     app.run(host=args.host, port=args.port, debug=True)
 
