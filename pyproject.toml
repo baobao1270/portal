@@ -1,6 +1,6 @@
 [project]
 name = "portal"
-version = "1.0.5"
+version = "1.0.6"
 description = "An unified portal for listing URLs"
 authors = [
     {name = "Joseph Chris", email = "joseph@josephcz.xyz"},

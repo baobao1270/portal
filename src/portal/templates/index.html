@@ -13,8 +13,9 @@
             <div class="site-group ws-grid-box">
                 {% for site in group.sites %}
                     <a target="_blank" class="site ws-button ws-grid-box-3" href="{{ site.url }}">
-                        <img alt="{{ site.name }}"
+                        <img
                              {% if site.icon %}
+                                alt="{{ site.name }}"
                                 {% if site.icon.startswith('http://') or site.icon.startswith('https://') %}
                                     src="{{ site.icon }}"
                                 {% else %}
